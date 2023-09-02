@@ -7,7 +7,7 @@
   >
     <view @tap="menuClick" style="z-index: 10;">
       <slot name="float-menu">
-        <view class="float-menu" style="width: 100rpx; height: 100rpx">Btn</view>
+        <view class="float-menu-samples" style="width: 100rpx; height: 100rpx">Btn</view>
       </slot>
     </view>
     <view class="menu-list">
@@ -72,7 +72,7 @@ const getItemStyle = (index: number) => {
   const x = Math.cos((degree * Math.PI) / 180) * props.distance;
   const y = Math.sin((degree * Math.PI) / 180) * props.distance;
   return {
-    "transition-delay": index * 300 + "ms",
+    "transition-delay": index * 500 + "ms",
     transform: !isMenuOpened.value
       ? "translate(-50%, -50%)"
       : "translate(-50%, -50%) translate(" + x + "rpx, " + y + "rpx)",
@@ -90,7 +90,7 @@ const getSize = (value: Number) => {
   align-items: center;
   position: relative;
 
-  .float-menu {
+  .float-menu-samples {
     background-color: transparent;
     border-radius: 50%;
     border-width: 10px;
