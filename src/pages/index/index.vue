@@ -1,9 +1,10 @@
 <template>
   <view class="index">
     <!-- <Counter /> -->
-    <float-menu :distance="200">
+    <float-menu :distance="200" ref="floatMenu">
       <template #float-menu>
         <view
+          @tap="menuTap"
           style="
             background-color: blue;
             width: 150rpx;
@@ -17,6 +18,7 @@
       </template>
       <template #menu-list-item="{ index }">
         <view
+          @tap="itemTap"
           style="
             background-color: red;
             width: 80rpx;
@@ -32,15 +34,20 @@
   </view>
 </template>
 
-<script>
+<script setup>
 import "./index.scss";
 import FloatMenu from "@/components/FloatMenu.vue";
-// import Counter from "../../components/Counter.vue";
-
-export default {
+import { ref } from "vue";
+defineOptions({
   name: "IndexPage",
-  components: {
-    FloatMenu,
-  },
+});
+const floatMenu = ref();
+
+const menuTap = () => {
+  floatMenu.value.openOrClose();
+};
+
+const itemTap = () => {
+  console.log("itemTap...");
 };
 </script>

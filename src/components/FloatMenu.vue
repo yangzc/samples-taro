@@ -5,9 +5,11 @@
       '--distance': getSize(props.distance * 2),
     }"
   >
-    <view @tap="menuClick" style="z-index: 10;">
-      <slot name="float-menu">
-        <view class="float-menu-samples" style="width: 100rpx; height: 100rpx">Btn</view>
+    <view style="z-index: 10">
+      <slot name="float-menu" style="z-index: 10">
+        <view class="float-menu-samples" style="width: 100rpx; height: 100rpx"
+          >测试</view
+        >
       </slot>
     </view>
     <view class="menu-list">
@@ -62,10 +64,13 @@ const props = defineProps({
 });
 const isMenuOpened = ref(false);
 
-const menuClick = () => {
-  console.log("doClick ..." + props.startDegree);
+const openOrClose = () => {
   isMenuOpened.value = !isMenuOpened.value;
 };
+
+const isOpen = () => {
+  return isMenuOpened.value;
+}
 
 const getItemStyle = (index: number) => {
   const degree = props.startDegree + index * props.stepDegree;
@@ -82,6 +87,11 @@ const getItemStyle = (index: number) => {
 const getSize = (value: Number) => {
   return value + props.unit;
 };
+
+defineExpose({
+  isOpen,
+  openOrClose,
+});
 </script>
 <style lang="scss">
 .float-menu-root {
