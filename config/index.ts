@@ -4,6 +4,7 @@ const config = {
   date: '2023-9-2',
   designWidth: 750,
   deviceRatio: {
+    375: 4 / 1,
     640: 2.34 / 2,
     750: 1,
     828: 1.81 / 2

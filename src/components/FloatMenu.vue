@@ -78,6 +78,7 @@ const getItemStyle = (index: number) => {
   const y = Math.sin((degree * Math.PI) / 180) * props.distance;
   return {
     "transition-delay": index * 500 + "ms",
+    opacity: isMenuOpened.value? 1: 0,
     transform: !isMenuOpened.value
       ? "translate(-50%, -50%)"
       : "translate(-50%, -50%) translate(" + x + "rpx, " + y + "rpx)",
